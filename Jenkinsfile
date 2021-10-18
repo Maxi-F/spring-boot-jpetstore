@@ -5,8 +5,9 @@ pipeline {
       steps {
         git 'https://github.com/Maxi-F/spring-boot-jpetstore'
         withGradle() {
-          sh '''gradle init
-gradle build'''
+          sh '''
+./gradlew init
+./gradlew build'''
         }
 
       }
