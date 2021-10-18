@@ -34,7 +34,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh '''sudo kill -9 $(sudo lsof -t -i:8081)
+        sh '''kill -9 $(lsof -t -i:8081)
 ./gradlew bootRun --args=\'--server.port=8081\' &'''
       }
     }
