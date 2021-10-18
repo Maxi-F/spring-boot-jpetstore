@@ -8,7 +8,8 @@ pipeline {
           withGradle() {
             sh '''
 ./gradlew init
-./gradlew build'''
+./gradlew build
+./gradlew jar'''
           }
 
         }
@@ -18,7 +19,10 @@ pipeline {
 
     stage('Test') {
       steps {
-        sh 'echo test'
+        timeout(unit: 'DAYS', time: 1, activity: true) {
+          sh './gradlew test'
+        }
+
       }
     }
 
