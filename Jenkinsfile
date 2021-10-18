@@ -3,12 +3,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        timeout(activity: true, unit: 'DAYS', time: 1)
         git 'https://github.com/Maxi-F/spring-boot-jpetstore'
-        withGradle() {
-          sh '''
+        timeout(activity: true, unit: 'DAYS', time: 1) {
+          withGradle() {
+            sh '''
 ./gradlew init
 ./gradlew build'''
+          }
+
         }
 
       }
