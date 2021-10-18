@@ -34,7 +34,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh 'echo deploy'
+        sh 'nohup ./gradlew bootRun --args=\'--server.port=8081\''
       }
     }
 
