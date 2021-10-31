@@ -29,7 +29,8 @@ pipeline {
     stage('Analyze') {
       steps {
         withGradle() {
-          sh './gradlew sonarqube -Dsonar.host.url=sonarqube:9000 -Dsonar.login=86c160c348f62303f6f89efc71d3c36ce84193ad'
+          sh '''./gradlew sonarqube -Dsonar.host.url=sonarqube:9000 -Dsonar.login=86c160c348f62303f6f89efc71d3c36ce84193ad
+echo vmaaaaa'''
         }
 
       }
